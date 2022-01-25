@@ -22,7 +22,7 @@ class MainActivity : AppCompatActivity() {
     }
 
     fun showGourmetList(key: String, lat: String, lng: String, range: String, format: String) {
-        //店舗詳細のFragment
+        //店舗一覧のFragment
         val gourmetListFragment = GourmetListFragment.forGourmetList(key, lat, lng, range, format)
         supportFragmentManager
             .beginTransaction()
