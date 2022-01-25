@@ -6,6 +6,7 @@
         <entry key="app/src/main/res/layout/activity_main.xml" value="0.21784420289855072" />
         <entry key="app/src/main/res/layout/fragment_gourmet_details.xml" value="0.1" />
         <entry key="app/src/main/res/layout/fragment_gourmet_list.xml" value="0.1" />
+        <entry key="app/src/main/res/layout/fragment_search_gourmet.xml" value="0.1" />
         <entry key="app/src/main/res/layout/gourmet_list_item.xml" value="0.1" />
       </map>
     </option>

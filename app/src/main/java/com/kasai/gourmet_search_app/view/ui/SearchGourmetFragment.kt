@@ -6,6 +6,7 @@ import android.content.pm.PackageManager
 import android.location.Location
 import android.location.LocationManager
 import android.os.Bundle
+import android.util.Log
 import android.view.LayoutInflater
 import android.view.View
 import android.view.ViewGroup
@@ -102,7 +103,7 @@ class SearchGourmetFragment : Fragment() {
                     if (location != null) {
                         val lat = location.latitude
                         val lng = location.longitude
-                        if (viewModel.range.value != null || viewModel.range.value != 0) {
+                        if (viewModel.range.value != null && viewModel.range.value != 0) {
                             val range = viewModel.judgeRange(viewModel.range.value!!)
                             if (lifecycle.currentState.isAtLeast(Lifecycle.State.STARTED) && activity is MainActivity) {
                                 (activity as MainActivity).showGourmetList(
