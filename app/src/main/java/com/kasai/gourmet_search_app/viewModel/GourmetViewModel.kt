@@ -9,7 +9,9 @@ import kotlinx.coroutines.launch
 
 class GourmetViewModel(
         private val myApplication: Application,
-        private val mGourmetID: String
+        private val mKey: String,
+        private val mGourmetID: String,
+        private val mFormat: String
 ) : AndroidViewModel(myApplication) {
 
     private val repository = GourmetRepository.instance
@@ -23,12 +25,12 @@ class GourmetViewModel(
 
     private fun loadGourmet() = viewModelScope.launch {
         try {
-            val gourmet = repository.getGourmetDetails("e400afd939e70db4", mGourmetID, "json")
+            val gourmet = repository.getGourmetDetails(mKey, mGourmetID, mFormat)
             if (gourmet.isSuccessful) {
                 gourmetLiveData.postValue(gourmet.body()?.results?.shop?.get(0))
             }
         } catch (e: Exception) {
-            e.stackTrace
+            e.printStackTrace()
         }
     }
 
@@ -36,9 +38,12 @@ class GourmetViewModel(
         this.gourmet.set(gourmet)
     }
 
-    class Factory(private val application: Application, private val gourmetID: String) : ViewModelProvider.NewInstanceFactory() {
+    class Factory(private val application: Application,
+                  private val key: String,
+                  private val gourmetID: String,
+                  private val format: String) : ViewModelProvider.NewInstanceFactory() {
         override fun <T : ViewModel> create(modelClass: Class<T>): T {
-            return GourmetViewModel(application, gourmetID) as T
+            return GourmetViewModel(application, key, gourmetID, format) as T
         }
     }
 }

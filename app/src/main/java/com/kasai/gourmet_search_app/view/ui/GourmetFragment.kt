@@ -15,18 +15,26 @@ import com.kasai.gourmet_search_app.viewModel.GourmetViewModel
 class GourmetFragment : Fragment() {
 
     companion object {
+        private const val API_KEY = "api_key"
         private const val KEY_GOURMET_ID = "gourmet_id"
+        private const val FORMAT = "format"
 
-        fun forGourmet(gourmetId: String) = GourmetFragment().apply {
-            arguments = Bundle().apply { putString(KEY_GOURMET_ID, gourmetId) }
+        fun forGourmet(key: String, gourmetId: String, format: String) = GourmetFragment().apply {
+            arguments = Bundle().apply {
+                putString(API_KEY, key)
+                putString(KEY_GOURMET_ID, gourmetId)
+                putString(FORMAT, format)
+            }
         }
     }
 
+    private val key by lazy { requireNotNull(arguments?.getString(API_KEY)) }
     private val gourmetId by lazy { requireNotNull(arguments?.getString(KEY_GOURMET_ID)) }
+    private val format by lazy { requireNotNull(arguments?.getString(FORMAT)) }
 
     private val viewModel by lazy {
         ViewModelProvider(this, GourmetViewModel.Factory(
-                requireActivity().application, gourmetId
+                requireActivity().application, key, gourmetId, format
         )).get(GourmetViewModel::class.java)
     }
 

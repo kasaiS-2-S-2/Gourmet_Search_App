@@ -31,9 +31,9 @@ class MainActivity : AppCompatActivity() {
             .commit()
     }
 
-    fun showGourmet(gourmet: Gourmet.Results.Shop) {
+    fun showGourmet(key: String, gourmet: Gourmet.Results.Shop, format: String) {
         //店舗詳細のFragment
-        val gourmetFragment = GourmetFragment.forGourmet(gourmet.id)
+        val gourmetFragment = GourmetFragment.forGourmet(key, gourmet.id, format)
         supportFragmentManager
                 .beginTransaction()
                 .addToBackStack("gourmet")

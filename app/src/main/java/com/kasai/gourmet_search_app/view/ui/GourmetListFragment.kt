@@ -52,7 +52,7 @@ class GourmetListFragment : Fragment() {
     private val gourmetAdapter: GourmetAdapter = GourmetAdapter(object : GourmetClickCallback {
         override fun onClick(gourmet: Gourmet.Results.Shop) {
             if (lifecycle.currentState.isAtLeast(Lifecycle.State.STARTED) && activity is MainActivity) {
-                (activity as MainActivity).showGourmet(gourmet)
+                (activity as MainActivity).showGourmet(getString(R.string.gourmet_api_key), gourmet, getString(R.string.search_data_format))
             }
         }
     })
