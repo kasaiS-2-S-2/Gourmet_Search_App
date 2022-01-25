@@ -1,3 +1,22 @@
 <resources>
-    <string name="app_name">gourmet_search_app</string>
+    <string name="app_name">周辺グルメサーチ！</string>
+    <string name="loading">Loading …</string>
+    <string name="shop_name">店名</string>
+    <string name="search_result">検索結果</string>
+    <string name="gourmet_list">周辺のお店</string>
+    <string name="shop_open">営業時間</string>
+    <string name="shop_address">住所</string>
+    <string name="shop_access">アクセス</string>
+    <string name="search_gourmet">お店を検索！</string>
+    <string name="current_place_permisstion_denied_meg">位置情報の使用を許可することで、お店の検索を行えます。</string>
+    <string name="cannot_get_current_place_meg">位置情報を取得できませんでした。</string>
+    <string name="turn_on_current_place">位置情報をONにしてください。</string>
+    <string name="range1">半径300m以内</string>
+    <string name="range2">半径500m以内</string>
+    <string name="range3">半径1000m以内</string>
+    <string name="range4">半径2000m以内</string>
+    <string name="range5">半径3000m以内</string>
+    <string name="set_search_range_meg">検索半径を指定してください。</string>
+    <string name="search_data_format">json</string>
+    <string name="gourmet_api_key">apikeyを設定</string>
 </resources>

@@ -1,0 +1,81 @@
+<?xml version="1.0" encoding="utf-8"?>
+
+<layout xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:app="http://schemas.android.com/apk/res-auto"
+    xmlns:tools="http://schemas.android.com/tools"
+    tools:context="com.kasai.speed_whether.ui.MainActivity">
+
+    <data>
+
+        <variable
+            name="searchGourmetViewModel"
+            type="com.kasai.gourmet_search_app.viewModel.SearchGourmetViewModel" />
+
+        <variable
+            name="searchGourmetFragment"
+            type="com.kasai.gourmet_search_app.view.ui.SearchGourmetFragment" />
+    </data>
+
+    <androidx.constraintlayout.widget.ConstraintLayout
+        android:layout_width="match_parent"
+        android:layout_height="match_parent">
+
+        <LinearLayout
+            android:layout_width="match_parent"
+            android:layout_height="match_parent"
+            android:orientation="vertical"
+            android:gravity="center_vertical">
+
+            <RadioGroup
+                android:id="@+id/ranges"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:checkedButton="@={searchGourmetViewModel.range}"
+                android:orientation="vertical"
+                android:layout_gravity="center_horizontal">
+
+                <RadioButton
+                    android:id="@+id/range1"
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content"
+                    android:text="@string/range1" />
+
+                <RadioButton
+                    android:id="@+id/range2"
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content"
+                    android:text="@string/range2" />
+
+                <RadioButton
+                    android:id="@+id/range3"
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content"
+                    android:text="@string/range3" />
+
+                <RadioButton
+                    android:id="@+id/range4"
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content"
+                    android:text="@string/range4" />
+
+                <RadioButton
+                    android:id="@+id/range5"
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content"
+                    android:text="@string/range5" />
+            </RadioGroup>
+
+
+            <Button
+                android:id="@+id/search_weather_button"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:onClick="@{() -> searchGourmetFragment.onSearchButtonPressed()}"
+                android:text="@string/search_gourmet"
+                android:layout_gravity="center_horizontal" />
+
+        </LinearLayout>
+
+    </androidx.constraintlayout.widget.ConstraintLayout>
+
+</layout>

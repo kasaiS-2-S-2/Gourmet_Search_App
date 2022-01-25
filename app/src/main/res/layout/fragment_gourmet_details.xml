@@ -1,0 +1,76 @@
+<?xml version="1.0" encoding="utf-8"?>
+
+<layout xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:app="http://schemas.android.com/apk/res-auto">
+
+    <data>
+        <variable
+            name="isLoading"
+            type="boolean" />
+        <variable
+            name="gourmetViewModel"
+            type="com.kasai.gourmet_search_app.viewModel.GourmetViewModel"/>
+    </data>
+
+    <FrameLayout
+        android:layout_width="match_parent"
+        android:layout_height="match_parent">
+
+        <TextView
+            android:id="@+id/loading"
+            android:layout_width="match_parent"
+            android:layout_height="match_parent"
+            android:gravity="center_vertical|center_horizontal"
+            android:text="@string/loading"
+            android:textAlignment="center"
+            app:visibleGone="@{isLoading}"/>
+
+        <LinearLayout
+            android:layout_marginStart="@dimen/item_horizontal_margin"
+            android:layout_marginEnd="@dimen/item_horizontal_margin"
+            android:layout_width="match_parent"
+            android:layout_height="match_parent"
+            android:gravity="center_vertical|center_horizontal"
+            android:padding="5dp"
+            android:paddingTop="@dimen/activity_vertical_margin"
+            android:orientation="vertical"
+            app:visibleGone="@{!isLoading}">
+
+            <ImageView
+                android:id="@+id/shop_image"
+                android:layout_width="@dimen/logo_width"
+                android:layout_height="@dimen/logo_height"
+                app:imageUrl="@{gourmetViewModel.gourmet.photo.pc.l}"
+                android:contentDescription="@null" />
+
+            <TextView
+                android:id="@+id/shop_name"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:contentDescription="@string/shop_name"
+                android:textStyle="bold"
+                android:textSize="@dimen/gourmet_header1"
+                android:text="@{gourmetViewModel.gourmet.name}"
+                android:textAlignment="center"
+                android:paddingBottom="5dp"/>
+
+            <TextView
+                android:id="@+id/shop_address"
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:contentDescription="@string/shop_address"
+                android:textSize="@dimen/gourmet_header2"
+                android:text="@{gourmetViewModel.gourmet.address}"/>
+
+            <TextView
+                android:id="@+id/shop_open"
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:contentDescription="@string/shop_open"
+                android:textSize="@dimen/gourmet_text"
+                android:text="@{gourmetViewModel.gourmet.open}"/>
+
+        </LinearLayout>
+
+    </FrameLayout>
+</layout>
